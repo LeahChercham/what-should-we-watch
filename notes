@@ -1,0 +1,15 @@
+Get 20 movies
+matcher = {
+    syncCode: String
+    connected: [{username}]
+    matches: [{}]
+    movies: [
+    {
+        id: String
+        Name: String
+        Resume: String
+        likeCount: Number
+        dislikeCount: Number
+    }
+]}
+

@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [numberOfPlayers, setNumberOfPlayers] = useState(0)
+  const [showNumberPlayersInput, setShowNumberPlayersInput] = useState(true)
+  const [playerTurn, setPlayerTurn] = useState(null)
+  const handleNumberOfPlayersChange = (event) => {
+    setNumberOfPlayers(event.target.value)
+  }
+
+  const [movies, setMovies] = useState([])
+
+  useEffect({
+
+
+  }, [])
+  
+  if (showNumberPlayersInput) {
+    return (
+      <div>
+        How many are you?
+        <input style={{ width: '150px' }} type="text" pattern="[0-9]*" onChange={handleNumberOfPlayersChange} />
+        <button title='OK' onClick={setShowNumberPlayersInput.bind(this, false)}>OK</button>
+      </div>
+    )
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      You are {numberOfPlayers}!
+      <div>
+        Player {playerTurn} it's your turn!
+      </div>
+      <div>
+
+      </div>
     </div>
   );
 }
